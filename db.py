@@ -23,7 +23,7 @@ def connect_db(dbname, user, password):
 def insert_line(data, cursor):
 
     try: 
-        cursor.execute('''INSERT INTO log_entry(log_date, log_time, log_status, log_short_text, log_text) VALUES (%s, %s, %s, %s, %s)''',(data[0], data[1], data[2], data[3], data[4]))
+        cursor.execute('''INSERT INTO log_entry(log_timestamp, log_status, log_short_text, log_text) VALUES (%s, %s, %s, %s)''',(data[0] + ' ' + data[1], data[2], data[3], data[4]))
     except:
         e = sys.exc_info()
         print(e) 
@@ -66,8 +66,7 @@ def setup(connection, cur):
         cur.execute ('''
         CREATE TABLE IF NOT EXISTS log_entry (
             log_id           serial            primary key,
-            log_date         date              not null,
-            log_time         time              not null,
+            log_timestamp    timestamp         not null,
             log_status       varchar(40)       not null,
             log_short_text   varchar(100)      not null,
             log_text         varchar(4000)     not null
