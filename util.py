@@ -41,10 +41,16 @@ def split_line(string, file):
     for i in range(0,4):
         splitted.append(try_to_split[i])
 
+    #If we found only timing at log_short_text
+    if 'timing' in splitted[3].lower():
+        splitted[3] = None
+
+    #remove from try_to_split what we added to splitted 
     for removed in splitted:
-        try_to_split.remove(removed)
-
-
+        if removed is not None:
+            try_to_split.remove(removed)
+    
+    #collect long_text
     for i in range(len(try_to_split)):
         if i != len(try_to_split)-1:
             try_to_split[i] += ' ' 

@@ -68,7 +68,7 @@ def setup(connection, cur):
             log_id           serial            primary key,
             log_timestamp    timestamp         not null,
             log_status       varchar(40)       not null,
-            log_short_text   varchar(100)      not null,
+            log_short_text   varchar(100)              ,
             log_text         varchar(4000)     not null
         );      
         ''')
