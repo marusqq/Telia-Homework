@@ -9,6 +9,7 @@ import os
 def validate_system_argvs(num_of_validation, argv):
     '''checks if system argvs pass various validations,
     if validations are broken, code quits'''
+
     if num_of_validation == 1:
         if len(argv) < 2:
             quit('[VALIDATION 1] usage python3 <file.py> <mode> (<file> if mode = insert)')
@@ -18,6 +19,11 @@ def validate_system_argvs(num_of_validation, argv):
             quit('usage python3 <file.py> <mode> <file>')
 
 def collect_python_error(file):
+    '''collects long python error line by line
+    to put it to log_text,
+    needs file that is read at the moment as a parameter,
+    returns long_error'''
+
     long_error = ''
     next_line = '!@#$'
 
@@ -70,11 +76,18 @@ def split_line(string, file):
     return splitted
 
 def error(error_code, free_text = None):
+    '''function just to make code clearer,
+    accepts error_code or/and free_text'''
+
     if error_code == 'file_doesnt_exist':
-        print('file', free_text, 'doesnt exist')
+        print('File', free_text, 'does not exist')
 
     elif error_code == 'failed_insert':
-        print('insert failed with line', free_text)
+        print('Insert failed with line', free_text)
+
+    elif error_code == 'no_connect_db':
+        print("Can't connect to database")
+
     quit()
 
 def path_exists(path):
