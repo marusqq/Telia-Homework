@@ -1,0 +1,13 @@
+{
+    "status" : [
+        "[api]", 
+        "[quarantine]", 
+        "[smooth-proc-vrun1]", 
+        "[-]", 
+        "[HTTP11ClientProtocol,client]",
+        "[test]",
+        "[SSO-7789]",
+        "[client]",
+        "[REST]"
+    ]
+}

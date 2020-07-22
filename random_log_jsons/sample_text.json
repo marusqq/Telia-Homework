@@ -1,0 +1,11 @@
+{
+    "text" : [
+        "Test Successful!", 
+        "Test Unsuccessful!", 
+        "Disconnected...", 
+        "Authenticated!", 
+        "Unknown Error!",
+        "Can't authenticate, error!"
+    ]
+
+}

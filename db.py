@@ -25,7 +25,7 @@ def insert_line(data, cursor):
     if any line isnt inserted, the inserted lines aren't committed'''
 
     try: 
-        cursor.execute('''INSERT INTO log_entry(log_timestamp, log_status, log_short_text, log_text) VALUES (%s, %s, %s, %s)''',(data[0] + ' ' + data[1], data[2], data[3], data[4]))
+        cursor.execute('''INSERT INTO log_entry(log_timestamp, log_status, log_short_text, log_text) VALUES (%s, %s, %s, %s)''',(str(data[0]) + ' ' + str(data[1]), data[2], data[3], data[4]))
     except:
         e = exc_info()
         print(e) 

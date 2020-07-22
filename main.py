@@ -8,6 +8,7 @@ import psycopg2
 from sys import argv
 import util 
 import db
+import log_generate as lg
 
 #connect to database
 connection = db.connect_db(dbname = 'telia_logs', user = 'marius', password = 'default')
@@ -25,6 +26,9 @@ elif argv[1] == 'insert':
 
 elif argv[1] == 'setup':
     db.setup(connection, cur)
+
+elif argv[1] == 'generate':
+    lg.generate(connection, cur)
     
 
 
